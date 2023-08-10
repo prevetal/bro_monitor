@@ -102,7 +102,9 @@
         position: relative;
         z-index: 5;
 
-        margin-right: auto;
+        margin-right: 20px;
+
+        align-self: center;
     }
 
 

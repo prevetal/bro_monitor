@@ -1,16 +1,18 @@
 <template>
-    <div class="block mini">
-        <router-link to="/" class="link">
-            <svg><use xlink:href="@/assets/sprite.svg#ic_link_arrow"></use></svg>
-        </router-link>
-
-        <div class="title">
-            {{ $t('message.network_blocks_pending_proposals_title') }}
+    <div class="block">
+        <div class="btns">
+            <button class="btn">
+                <svg><use xlink:href="@/assets/sprite.svg#ic_pin"></use></svg>
+            </button>
         </div>
 
-        <div class="val">{{ data }}</div>
+        <div class="title">
+            {{ $t('message.network_blocks_block_height_title') }}
+        </div>
 
-        <div class="chart"></div>
+        <div class="val">
+            {{ data.toLocaleString() }}
+        </div>
     </div>
 </template>
 
@@ -25,7 +27,7 @@
     onBeforeMount(async () => {
         // Get data
         try {
-            await fetch('https://rpc.bronbro.io/statistics/pending_proposals')
+            await fetch('https://rpc.bronbro.io/statistics/last_block_height')
                 .then(res => res.json())
                 .then(response => {
                     // Set data

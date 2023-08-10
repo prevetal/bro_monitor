@@ -37,10 +37,10 @@ app.config.globalProperties.$filters = {
         let newValue
 
         value != 0
-            ? newValue = value.toFixed(limit)
+            ? newValue = value?.toFixed(limit)
             : newValue = value
 
-        return newValue
+        return Number(newValue)
     }
 }
 

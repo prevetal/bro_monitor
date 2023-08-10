@@ -15,7 +15,9 @@
             {{ $t('message.network_blocks_market_cap_title') }}
         </div>
 
-        <!-- <div class="val">${{ $filters.toFixed(data.today, 0) }}</div> -->
+        <div class="val">
+            ${{ $filters.toFixed(data.today, 0).toLocaleString() }}
+        </div>
 
         <div class="chart"></div>
     </div>
@@ -28,7 +30,9 @@
 
 
     const store = useGlobalStore(),
-        data = ref({})
+        data = ref({
+            today: 0
+        })
 
 
     onBeforeMount(async () => {

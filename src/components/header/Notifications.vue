@@ -21,7 +21,7 @@
 <style scoped>
     .notifications
     {
-        width: calc(100% - 457px);
+        width: calc(100% - 497px);
 
         --shine-degree: 120deg;
         --shine-color: rgba(255, 255, 255, .15);
@@ -118,6 +118,7 @@
         animation: shine 5s linear;
     }
 
+
     @keyframes shine
     {
         0%
@@ -134,6 +135,7 @@
             transition-property: left;
         }
     }
+
 
     .notifications .data.animate .icon svg
     {
@@ -170,12 +172,6 @@
 
     @media print, (max-width: 1599px)
     {
-        .notifications
-        {
-            width: calc(100% - 690px);
-        }
-
-
         .notifications .data
         {
             font-size: 13px;

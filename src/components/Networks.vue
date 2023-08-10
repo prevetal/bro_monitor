@@ -334,6 +334,12 @@
             font-size: 22px;
             line-height: 28px;
         }
+
+
+        .networks .title .prices_link
+        {
+            font-size: 16px;
+        }
     }
 
 
@@ -349,6 +355,16 @@
         {
             font-size: 20px;
             line-height: 26px;
+        }
+    }
+
+
+
+    @media print, (max-width: 479px)
+    {
+        .networks .title .prices_link
+        {
+            font-size: 15px;
         }
     }
 

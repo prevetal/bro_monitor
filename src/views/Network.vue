@@ -1,6 +1,6 @@
 <template>
     <section class="network_page">
-        <div class="cont">
+        <div class="cont middle">
             <div class="grid row">
                 <section class="col">
                     <!-- Networks -->
@@ -152,7 +152,7 @@
                                     </button>
                                 </div>
 
-                                <div class="title">Total amount of unbonded ATOM</div>
+                                <div class="title">Total amount of bonded ATOM</div>
 
                                 <div class="val">246 379 529</div>
 
@@ -218,17 +218,7 @@
                             </div>
 
 
-                            <div class="block">
-                                <div class="btns">
-                                    <button class="btn">
-                                        <svg><use xlink:href="@/assets/sprite.svg#ic_pin"></use></svg>
-                                    </button>
-                                </div>
-
-                                <div class="title">Last Block Height</div>
-
-                                <div class="val">15 886 830</div>
-                            </div>
+                            <LastBlockHeight />
                         </div>
                     </div>
                 </section>
@@ -247,6 +237,7 @@
     import MarketCap from  '@/components/Network/Blocks/MarketCap.vue'
     import PendingProposals from  '@/components/Network/Blocks/PendingProposals.vue'
     import ActiveProposals from  '@/components/Network/Blocks/ActiveProposals.vue'
+    import LastBlockHeight from  '@/components/Network/Blocks/LastBlockHeight.vue'
 
 
     const activeTab = ref(1),
@@ -299,8 +290,9 @@
         width: 100%;
         padding: 10px 0;
 
+        transition: .2s linear;
         text-align: left;
-transition: .2s linear;
+
         border-bottom: 1px solid rgba(255, 255, 255, .1);
     }
 
@@ -320,168 +312,216 @@ transition: .2s linear;
 
 
 
-    .head{
+    .head
+    {
         display: flex;
-        justify-content: space-between;
-        align-items:center;
-        align-content: center;
-        flex-wrap: wrap;
+
         margin-bottom: 20px;
-    }
 
-
-    .head .page_title{
-        font-size: 24px;
-font-weight: 600;
-    }
-
-
-    .head .types{
-        padding: 2px;
-        border-radius: 12px;
-border: 2px solid #212121;
-background: #000;
-        margin-left: auto;
-        display: flex;
         justify-content: space-between;
-        align-items:center;
-        align-content: center;
-        flex-wrap: wrap;  
-    }
-
-
-    .head .types .btn{
-        color: rgba(255, 255, 255, 0.50);
-transition: 0.2s linear;
-font-size: 16px;
-border-radius: 8px;
-display: flex;
-padding: 14px 8px;
-        justify-content: center;
-        align-items:center;
+        align-items: center;
         align-content: center;
         flex-wrap: wrap;
     }
 
-    .head .types .btn svg{
+
+    .head .page_title
+    {
+        font-size: 24px;
+        font-weight: 600;
+    }
+
+
+    .head .types
+    {
+        display: flex;
+
+        margin-left: auto;
+        padding: 2px;
+
+        border: 2px solid #212121;
+        border-radius: 12px;
+        background: #000;
+
+        justify-content: space-between;
+        align-items: center;
+        align-content: center;
+        flex-wrap: wrap;
+    }
+
+
+    .head .types .btn
+    {
+        color: rgba(255, 255, 255, .50);
+        font-size: 16px;
+
+        display: flex;
+
+        padding: 14px 8px;
+
+        transition: .2s linear;
+
+        border-radius: 8px;
+
+        justify-content: center;
+        align-items: center;
+        align-content: center;
+        flex-wrap: wrap;
+    }
+
+    .head .types .btn svg
+    {
         display: block;
+
         width: 18px;
-height: 18px;
-margin-right: 4px;
+        height: 18px;
+        margin-right: 4px;
     }
 
     .head .types .btn:hover,
-    .head .types .btn.active{
+    .head .types .btn.active
+    {
         color: #fff;
+
         background: #212121;
     }
 
 
 
-    .charts .row{
-        align-items:stretch;
-        align-content: stretch;
-        margin-left: -11px;
+    .charts .row
+    {
         margin-bottom: -20px;
+        margin-left: -11px;
+
+        align-items: stretch;
+        align-content: stretch;
     }
 
-    .charts .row > *{
+    .charts .row > *
+    {
         width: calc(33.333% - 11px);
-        margin-left: 11px;
         margin-bottom: 20px;
+        margin-left: 11px;
     }
 
-    .charts .row > *.mini{
-        width: calc(16.666% - 11px);}
+    .charts .row > *.mini
+    {
+        width: calc(16.666% - 11px);
+    }
 
 
-    .charts .block{
-        padding: 12px 8px;
-        border-radius: 16px;
-border: 2px solid #212121;
-background: #000;
-min-height: 146px;
+    .charts .block
+    {
         position: relative;
+
+        min-height: 146px;
+        padding: 12px 8px;
+
+        border: 2px solid #212121;
+        border-radius: 16px;
+        background: #000;
     }
 
 
-    .charts .block .link{
+    .charts .block .link
+    {
+        color: #fff;
+
         position: absolute;
+        z-index: 5;
         top: 8px;
         right: 8px;
-        
-z-index: 5;
-        color: #fff;
+
         text-decoration: none;
     }
 
-    .charts .block .link svg{
+    .charts .block .link svg
+    {
         display: block;
+
         width: 24px;
-height: 24px;
+        height: 24px;
     }
 
 
-    .charts .block .btns{
-        display: flex;
-        justify-content: flex-start;
-        align-items:center;
-        align-content: stretch;
-        flex-wrap: wrap;
+    .charts .block .btns
+    {
         position: absolute;
+        z-index: 5;
         top: 8px;
         right: 8px;
-z-index: 5;
-    }
 
-
-    .charts .block .btns .btn{
         display: flex;
-        border-radius: 50%;
-        width: 34px;
-height: 34px;
-padding: 8px;
-background: #353535;
-transition: background 0.2s linear;
-        justify-content: center;
-        align-items:center;
-        align-content: center;
-        flex-wrap: wrap;  
+
+        justify-content: flex-start;
+        align-items: center;
+        align-content: stretch;
+        flex-wrap: wrap;
     }
 
-    .charts .block .btns .btn + .btn{
+
+    .charts .block .btns .btn
+    {
+        display: flex;
+
+        width: 34px;
+        height: 34px;
+        padding: 8px;
+
+        transition: background .2s linear;
+
+        border-radius: 50%;
+        background: #353535;
+
+        justify-content: center;
+        align-items: center;
+        align-content: center;
+        flex-wrap: wrap;
+    }
+
+    .charts .block .btns .btn + .btn
+    {
         margin-left: 4px;
     }
 
-    .charts .block .btns .btn svg{
+    .charts .block .btns .btn svg
+    {
         display: block;
+
         width: 18px;
-height: 18px;
+        height: 18px;
     }
 
 
     .charts .block .btns .btn:hover,
-    .charts .block .btns .btn.active{
-        background: #950FFF;
+    .charts .block .btns .btn.active
+    {
+        background: #950fff;
     }
 
 
-    .charts .block .title{
+    .charts .block .title
+    {
+        font-size: 16px;
+        line-height: 120%;
+
+        position: relative;
+        z-index: 3;
+
         width: calc(100% - 80px);
-        font-size: 18px;
-line-height: 120%;
-margin-bottom: 24px;
-position: relative;
-z-index: 3;
+        margin-bottom: 24px;
+        padding-top: 3px;
     }
 
 
-    .charts .block .val{
-        font-size: 30px;
-font-weight: 600;
-line-height: 100%;
-position: relative;
-z-index: 3;
+    .charts .block .val
+    {
+        font-size: 28px;
+        font-weight: 600;
+        line-height: 100%;
+
+        position: relative;
+        z-index: 3;
     }
 
 
@@ -496,6 +536,12 @@ z-index: 3;
         .col_main
         {
             width: calc(100% - 344px);
+        }
+
+
+        .charts .block .val
+        {
+            font-size: 26px;
         }
     }
 
@@ -512,6 +558,12 @@ z-index: 3;
         {
             width: calc(100% - 320px);
         }
+
+
+        .charts .block .val
+        {
+            font-size: 25px;
+        }
     }
 
 
@@ -526,6 +578,12 @@ z-index: 3;
         .col_main
         {
             width: calc(100% - 300px);
+        }
+
+
+        .charts .block .val
+        {
+            font-size: 24px;
         }
     }
 
@@ -542,7 +600,43 @@ z-index: 3;
 
 
 
-    @media print, (max-width: 479px)
+    @media print, (max-width: 1023px)
+    {
+        .head .page_title
+        {
+            font-size: 22px;
+        }
+
+
+        .head .types .btn
+        {
+            font-size: 15px;
+
+            padding: 12px;
+        }
+
+
+
+        .charts .row
+        {
+            margin-left: -12px;
+        }
+
+        .charts .row > *
+        {
+            width: calc(50% - 12px);
+            margin-left: 12px;
+        }
+
+        .charts .row > *.mini
+        {
+            width: calc(25% - 12px);
+        }
+    }
+
+
+
+    @media print, (max-width: 767px)
     {
         .tabs
         {
@@ -579,11 +673,66 @@ z-index: 3;
         {
             display: inline-block;
 
-            width: 120px;
+            width: 160px;
             max-width: none;
             margin: 0;
 
             vertical-align: top;
+        }
+
+
+
+        .head .page_title
+        {
+            font-size: 20px;
+            line-height: 26px;
+        }
+
+
+        .head .types
+        {
+            width: 100%;
+            margin-top: 20px;
+            margin-left: 0;
+        }
+
+
+        .head .types .btn
+        {
+            width: 33.333%;
+        }
+
+
+        .charts .row > *
+        {
+            width: calc(100% - 12px);
+        }
+
+        .charts .row > *.mini
+        {
+            width: calc(50% - 12px);
+        }
+    }
+
+
+
+    @media print, (max-width: 479px)
+    {
+        .head .types .btn
+        {
+            font-size: 14px;
+
+            width: auto;
+            padding: 12px 16px;
+        }
+
+
+
+        .charts .block .title
+        {
+            font-size: 15px;
+
+            padding-top: 4px;
         }
     }
 </style>

@@ -17,11 +17,9 @@
 
 <script setup>
     import { onBeforeMount, ref } from 'vue'
-    import { useGlobalStore } from '@/stores'
 
 
-    const store = useGlobalStore(),
-        data = ref({})
+    const data = ref(0)
 
 
     onBeforeMount(async () => {

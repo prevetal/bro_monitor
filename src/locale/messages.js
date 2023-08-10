@@ -26,6 +26,8 @@ export default {
             'network_blocks_market_cap_title': 'Market Cap',
             'network_blocks_pending_proposals_title': 'Pending Proposals',
             'network_blocks_active_proposals_title': 'Active Proposals',
+            'network_blocks_unbonded_tokens_title': 'Total amount of unbonded {token}',
+            'network_blocks_block_height_title': 'Last Block Height',
 
 
             // Footer

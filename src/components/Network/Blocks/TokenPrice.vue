@@ -15,7 +15,9 @@
             {{ $t('message.network_blocks_price_title') }}
         </div>
 
-        <!-- <div class="val">${{ $filters.toFixed(price.today, 2) }}</div> -->
+        <div class="val">
+            ${{ $filters.toFixed(data.today, 2) }}
+        </div>
 
         <div class="chart"></div>
     </div>
@@ -28,7 +30,9 @@
 
 
     const store = useGlobalStore(),
-        price = ref({})
+        data = ref({
+            today: 0
+        })
 
 
     onBeforeMount(async () => {
@@ -38,7 +42,7 @@
                 .then(res => res.json())
                 .then(response => {
                     // Set data
-                    price.value = response.data
+                    data.value = response.data
                 })
         } catch (error) {
             console.error(error)
